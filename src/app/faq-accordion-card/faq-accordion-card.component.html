@@ -1,0 +1,19 @@
+<article class="card-faq">
+  <h1>{{title}}</h1>
+
+  <main>
+    <section *ngFor="let faqContent of faqArray" class="card-faq-section">
+      <button class="card-faq-section__header" [attr.aria-expanded]="'faq' + faqContent.id" [attr.aria-controls]="">
+        <span>{{faqContent.question}}</span>
+        <img FaqImage [faqImage]="faqContent" [alt]="faqContent.imgDescription">
+      </button>
+
+      <div class="card-faq-section__body" [id]="faqContent.id">
+        <p class="card-faq-section__description">
+          {{faqContent.answer}}
+        </p>
+      </div>
+    </section>
+
+  </main>
+</article>
