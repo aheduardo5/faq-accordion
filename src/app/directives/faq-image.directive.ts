@@ -11,12 +11,12 @@ import { faqInterface } from '../interfaces/faq.interface';
   selector: '[FaqImage]',
 })
 export class FaqImageDirective implements OnChanges {
-  @Input('faqImage') faq!: faqInterface;
+  @Input('faqImage') faqExpanded!: boolean;
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.faq.expanded) {
+    if (!this.faqExpanded) {
       this.elementRef.nativeElement.src = 'assets/images/icon-minus.svg';
     } else {
       this.elementRef.nativeElement.src = 'assets/images/icon-plus.svg';

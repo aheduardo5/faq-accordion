@@ -3,16 +3,18 @@
 
   <main>
     <section *ngFor="let faqContent of faqArray" class="card-faq-section">
-      <button class="card-faq-section__header" [attr.aria-expanded]="'faq' + faqContent.id" [attr.aria-controls]="">
+      <button class="card-faq-section__header" [attr.aria-expanded]="faqContent.expanded.toString()"
+        [attr.aria-controls]="faqContent.id.toString()" (click)="toggleAccordion(faqContent)">
         <span>{{faqContent.question}}</span>
-        <img FaqImage [faqImage]="faqContent" [alt]="faqContent.imgDescription">
+        <img FaqImage [faqImage]="faqContent.expanded" [alt]="faqContent.imgDescription">
       </button>
 
-      <div class="card-faq-section__body" [id]="faqContent.id">
+      <div *ngIf="faqContent.expanded" class="card-faq-section__body" [id]="faqContent.id">
         <p class="card-faq-section__description">
           {{faqContent.answer}}
         </p>
       </div>
+      <hr *ngIf="faqContent.display_separator" class="card-faq__separator">
     </section>
 
   </main>
