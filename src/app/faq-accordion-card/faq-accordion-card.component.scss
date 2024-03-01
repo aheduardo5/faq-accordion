@@ -12,27 +12,38 @@
   background-color: $white;
   border-radius: 8px;
   padding: 24px;
-
   h1 {
     margin-bottom: 24px;
   }
-
-  h1::before {
-    // PENDING
-    content: url(../../assets/images/icon-star.svg);
-    display: inline-block;
-    margin-right: 10px;
+  .card-faq__container-title {
+    display: flex;
+    flex: 1;
+    &::before {
+      // PENDING
+      content: url(../../assets/images/icon-star.svg);
+      margin-right: 10px;
+    }
   }
 }
 
 .card-faq-section {
   button.card-faq-section__header {
+    width: 100%;
     display: flex;
     align-items: center;
-
+    text-align: start;
     span {
-      text-align: start;
-      padding-right: 60px;
+      flex: 1;
+      padding-right: 20px;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/icon-minus.svg");
+      background-size: cover;
+      // margin-left: 16px;
     }
 
     &:hover {
@@ -52,5 +63,11 @@
     border: none;
     border: 1px solid $light-pink;
     margin: 20px 0;
+  }
+}
+
+@media (min-width: 765px) {
+  .card-faq {
+    width: 600px;
   }
 }

@@ -46,3 +46,9 @@ p {
 footer a {
   color: $white;
 }
+
+@media (min-width: 765px) {
+  body::before {
+    background-image: url("../assets/images/background-pattern-desktop.svg");
+  }
+}

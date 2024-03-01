@@ -1,12 +1,13 @@
 <article class="card-faq">
-  <h1>{{title}}</h1>
+  <div class="card-faq__container-title">
+    <h1>{{title}}</h1>
+  </div>
 
   <main>
     <section *ngFor="let faqContent of faqArray" class="card-faq-section">
       <button class="card-faq-section__header" [attr.aria-expanded]="faqContent.expanded.toString()"
         [attr.aria-controls]="faqContent.id.toString()" (click)="toggleAccordion(faqContent)">
         <span>{{faqContent.question}}</span>
-        <img FaqImage [faqImage]="faqContent.expanded" [alt]="faqContent.imgDescription">
       </button>
 
       <div *ngIf="faqContent.expanded" class="card-faq-section__body" [id]="faqContent.id">
