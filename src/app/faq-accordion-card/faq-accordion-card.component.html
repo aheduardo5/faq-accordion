@@ -1,18 +1,22 @@
 <article class="card-faq">
-  <h1>{{title}}</h1>
+  <div class="card-faq__container-title">
+    <h1>{{title}}</h1>
+  </div>
 
   <main>
     <section *ngFor="let faqContent of faqArray" class="card-faq-section">
-      <button class="card-faq-section__header" [attr.aria-expanded]="'faq' + faqContent.id" [attr.aria-controls]="">
+      <button class="card-faq-section__header" [ngClass]="faqContent.expanded ? 'open': ''"
+        [attr.aria-expanded]="faqContent.expanded.toString()" [attr.aria-controls]="faqContent.id.toString()"
+        (click)="toggleAccordion(faqContent)">
         <span>{{faqContent.question}}</span>
-        <img FaqImage [faqImage]="faqContent" [alt]="faqContent.imgDescription">
       </button>
 
-      <div class="card-faq-section__body" [id]="faqContent.id">
+      <div *ngIf="faqContent.expanded" class="card-faq-section__body" [id]="faqContent.id">
         <p class="card-faq-section__description">
           {{faqContent.answer}}
         </p>
       </div>
+      <hr *ngIf="faqContent.display_separator" class="card-faq__separator">
     </section>
 
   </main>

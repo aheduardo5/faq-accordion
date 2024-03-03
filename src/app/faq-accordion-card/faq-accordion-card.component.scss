@@ -1,0 +1,88 @@
+@import "../../styles/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+}
+
+.card-faq {
+  width: 327px;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 24px;
+
+  .card-faq__container-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 24px;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/icon-star.svg");
+      background-size: cover;
+      margin-right: 10px;
+    }
+  }
+}
+
+.card-faq-section {
+  button.card-faq-section__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: start;
+    span {
+      flex: 1;
+      padding-right: 20px;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/icon-minus.svg");
+      background-size: cover;
+    }
+
+    &:hover {
+      color: $grayish-purple;
+      cursor: pointer;
+      transition: 300ms;
+    }
+    &.open {
+      &::after {
+        transition: 300ms;
+        background-image: url("../../assets/images/icon-plus.svg");
+      }
+    }
+  }
+
+  .card-faq-section__body .card-faq-section__description {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin: 20px 0;
+  }
+
+  .card-faq__separator {
+    border: none;
+    border: 1px solid $light-pink;
+    margin: 20px 0;
+  }
+}
+
+@media (min-width: 765px) {
+  .card-faq {
+    width: 600px;
+    .card-faq__container-title {
+      &::before {
+        width: 30px;
+        height: 32px;
+      }
+    }
+  }
+}
