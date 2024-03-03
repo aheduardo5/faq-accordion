@@ -12,15 +12,19 @@
   background-color: $white;
   border-radius: 8px;
   padding: 24px;
-  h1 {
-    margin-bottom: 24px;
-  }
+
   .card-faq__container-title {
     display: flex;
-    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 24px;
     &::before {
-      // PENDING
-      content: url(../../assets/images/icon-star.svg);
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/icon-star.svg");
+      background-size: cover;
       margin-right: 10px;
     }
   }
@@ -43,13 +47,18 @@
       height: 24px;
       background-image: url("../../assets/images/icon-minus.svg");
       background-size: cover;
-      // margin-left: 16px;
     }
 
     &:hover {
       color: $grayish-purple;
       cursor: pointer;
       transition: 300ms;
+    }
+    &.open {
+      &::after {
+        transition: 300ms;
+        background-image: url("../../assets/images/icon-plus.svg");
+      }
     }
   }
 
@@ -69,5 +78,11 @@
 @media (min-width: 765px) {
   .card-faq {
     width: 600px;
+    .card-faq__container-title {
+      &::before {
+        width: 30px;
+        height: 32px;
+      }
+    }
   }
 }

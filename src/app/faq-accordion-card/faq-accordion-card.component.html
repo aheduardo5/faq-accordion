@@ -5,8 +5,9 @@
 
   <main>
     <section *ngFor="let faqContent of faqArray" class="card-faq-section">
-      <button class="card-faq-section__header" [attr.aria-expanded]="faqContent.expanded.toString()"
-        [attr.aria-controls]="faqContent.id.toString()" (click)="toggleAccordion(faqContent)">
+      <button class="card-faq-section__header" [ngClass]="faqContent.expanded ? 'open': ''"
+        [attr.aria-expanded]="faqContent.expanded.toString()" [attr.aria-controls]="faqContent.id.toString()"
+        (click)="toggleAccordion(faqContent)">
         <span>{{faqContent.question}}</span>
       </button>
 
