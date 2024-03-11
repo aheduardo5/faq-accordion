@@ -48,7 +48,6 @@ export class FaqAccordionCardComponent {
   ];
 
   toggleAccordion(faqContent: faqInterface): void {
-    console.log(faqContent);
     faqContent.expanded = !faqContent.expanded;
   }
 }
